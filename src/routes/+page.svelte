@@ -2,11 +2,13 @@
     import '../style/global.css'
 	import Bodycontent from './bodycontent.svelte';
 	import Carosel from './carosel.svelte';
+	import Events from './events.svelte';
+	import Flashsale from './flashsale.svelte';
 	import Followus from './followus.svelte';
 	import Itemcategory from './itemcategory.svelte';
 	import Navbarbot from './navbarbot.svelte';
 </script>
-<div class="navbar-wrap">
+<div class="navbar-wrap sticky-top">
     <div class="navbartopper">
         <div class="container navbar">
             <div class="navbar top-left"> <!--ซ้าย-->
@@ -44,15 +46,19 @@
     <div class="container-wrapper header-with-search-wrapper">
         <Navbarbot />
     </div> <!-- Navbar ด้านล่าง-->
-    <div class="carousel">
-        <Carosel />
-    </div>
+    
+</div>
+<div class="carousel">
+    <Carosel />
 </div>
 <div class="body-content">
     <Bodycontent />
+    <Itemcategory />
+    <Flashsale />
+    <Events />
 </div>
 <div class="itemcategory">
-    <Itemcategory />
+    
 </div>
 <style>
     *{
@@ -96,7 +102,6 @@
     }
     .navbar-wrap{
         background-color: #fff;
-
     }
     svg{
         fill: #fff;
