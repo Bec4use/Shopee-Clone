@@ -1,4 +1,7 @@
 <script>
+	import { onMount } from "svelte";
+
+
     let second = 59
     let mins = 59
     let hours = 0
@@ -17,6 +20,22 @@
     setInterval(() => {
         hours -= 1
     }, 3600000)
+
+    let flashSaleItems = []
+
+    onMount(async () => {
+        flashSaleItems = await getFlashSaleItems()
+    })
+
+    const getFlashSaleItems = async() => {
+        return [
+            {
+                price: 11900,
+                imgUrl: "https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/fb1088de81e42c4e538967ec12cb5caa.png",
+                discount: 73
+            }
+        ]
+    }
   </script>
 <div class="container mt-4">
     <div class="flashmenu d-flex">
@@ -40,7 +59,7 @@
                 <div class="flashsale1">
                     <div class="flashimg-1"></div>
                     <div class="flashimgcover"></div>
-                    <div class="price-1">฿11,900
+                    <div class="price-1">฿{item.price}
                         <div class="flashbar">
                             <img src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/ac7f81d9ee062223753413ec98497a86.png" alt="">
                         </div>

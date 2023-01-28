@@ -1,3 +1,77 @@
+<script>
+	import { onMount } from "svelte/types/runtime/internal/lifecycle";
+    /**
+	 * @type {any[]}
+	 */
+    let items = [];
+    onMount(async () => {
+        items = await getItems()
+    })
+
+
+    const getItems = async () => {
+        // GET localhost:8080/items/
+        return [
+            {
+                url: "https://cf.shopee.co.th/file/f06f0abdf6bb5a65fdc6edf73101b820_tn",
+                description: "ฟไกส่ดสรฟ่ไก"
+            }, {
+                url: "https://cf.shopee.co.th/file/f06f0abdf6bb5a65fdc6edf73101b820_tn",
+                description: "เสื้อผ้าแฟชั่นผู้ชาย"
+            },{
+                url: "https://cf.shopee.co.th/file/f06f0abdf6bb5a65fdc6edf73101b820_tn",
+                description: "เสื้อผ้าแฟชั่นผู้ชาย"
+            },{
+                url: "https://cf.shopee.co.th/file/f06f0abdf6bb5a65fdc6edf73101b820_tn",
+                description: "เสื้อผ้าแฟชั่นผู้ชาย"
+            },{
+                url: "https://cf.shopee.co.th/file/f06f0abdf6bb5a65fdc6edf73101b820_tn",
+                description: "เสื้อผ้าแฟชั่นผู้ชาย"
+            },{
+                url: "https://cf.shopee.co.th/file/f06f0abdf6bb5a65fdc6edf73101b820_tn",
+                description: "เสื้อผ้าแฟชั่นผู้ชาย"
+            },{
+                url: "https://cf.shopee.co.th/file/f06f0abdf6bb5a65fdc6edf73101b820_tn",
+                description: "เสื้อผ้าแฟชั่นผู้ชาย"
+            },{
+                url: "https://cf.shopee.co.th/file/f06f0abdf6bb5a65fdc6edf73101b820_tn",
+                description: "เสื้อผ้าแฟชั่นผู้ชาย"
+            },{
+                url: "https://cf.shopee.co.th/file/f06f0abdf6bb5a65fdc6edf73101b820_tn",
+                description: "เสื้อผ้าแฟชั่นผู้ชาย"
+            },{
+                url: "https://cf.shopee.co.th/file/f06f0abdf6bb5a65fdc6edf73101b820_tn",
+                description: "เสื้อผ้าแฟชั่นผู้ชาย"
+            },{
+                url: "https://cf.shopee.co.th/file/f06f0abdf6bb5a65fdc6edf73101b820_tn",
+                description: "เสื้อผ้าแฟชั่นผู้ชาย"
+            },{
+                url: "https://cf.shopee.co.th/file/f06f0abdf6bb5a65fdc6edf73101b820_tn",
+                description: "เสื้อผ้าแฟชั่นผู้ชาย"
+            },{
+                url: "https://cf.shopee.co.th/file/f06f0abdf6bb5a65fdc6edf73101b820_tn",
+                description: "เสื้อผ้าแฟชั่นผู้ชาย"
+            },{
+                url: "https://cf.shopee.co.th/file/f06f0abdf6bb5a65fdc6edf73101b820_tn",
+                description: "เสื้อผ้าแฟชั่นผู้ชาย"
+            },{
+                url: "https://cf.shopee.co.th/file/f06f0abdf6bb5a65fdc6edf73101b820_tn",
+                description: "เสื้อผ้าแฟชั่นผู้ชาย"
+            },{
+                url: "https://cf.shopee.co.th/file/f06f0abdf6bb5a65fdc6edf73101b820_tn",
+                description: "เสื้อผ้าแฟชั่นผู้ชาย"
+            },{
+                url: "https://cf.shopee.co.th/file/f06f0abdf6bb5a65fdc6edf73101b820_tn",
+                description: "เสื้อผ้าแฟชั่นผู้ชาย"
+            },{
+                url: "https://cf.shopee.co.th/file/f06f0abdf6bb5a65fdc6edf73101b820_tn",
+                description: "เสื้อผ้าแฟชั่นผู้ชาย"
+            }
+        ]
+    }
+
+</script>
+
 <div class="spacer-homepage">
 
 </div>
@@ -7,130 +81,14 @@
 <div class="category-menu container">
    <div class="topmenu"> 
         <ul class="d-flex">
-            <li><a href="/" class="tabs item1">
-                <div class="categorytop item-1">
-                    <div class="categoryimg item1"></div>
-                    <div class="captionimg-1">เสื้อผ้าแฟชั่นผู้ชาย</div>
-                </div>
-            </a></li>
-            <li><a href="/" class="tabs item1">
-                <div class="categorytop item-1">
-                    <div class="categoryimg item2"></div>
-                    <div class="captionimg-1">มือถือและอุปกรณ์เสริม</div>
-                </div>
-            </a></li>
-            <li><a href="/" class="tabs item1">
-                <div class="categorytop item-1">
-                    <div class="categoryimg item3"></div>
-                    <div class="captionimg-1">อาหารเสริมและผลิตภัณฑ์สุขภาพ</div>
-                </div>
-            </a></li>
-            <li><a href="/" class="tabs item1">
-                <div class="categorytop item-1">
-                    <div class="categoryimg item4"></div>
-                    <div class="captionimg-1">นาฬิกาและแว่นตา</div>
-                </div>
-            </a></li>
-            <li><a href="/" class="tabs item1">
-                <div class="categorytop item-1">
-                    <div class="categoryimg item5"></div>
-                    <div class="captionimg-1">รองเท้าผู้ชาย</div>
-                </div>
-            </a></li>
-            <li><a href="/" class="tabs item1">
-                <div class="categorytop item-1">
-                    <div class="categoryimg item6"></div>
-                    <div class="captionimg-1">คอมพิวเตอร์และแล็ปท็อป</div>
-                </div>
-            </a></li>
-            <li><a href="/" class="tabs item1">
-                <div class="categorytop item-1">
-                    <div class="categoryimg item7"></div>
-                    <div class="captionimg-1">กล้องและอุปกรณ์ถ่ายภาพ</div>
-                </div>
-            </a></li>
-            <li><a href="/" class="tabs item1">
-                <div class="categorytop item-1">
-                    <div class="categoryimg item8"></div>
-                    <div class="captionimg-1">กีฬาและกิจกรรมกลางแจ้ง</div>
-                </div>
-            </a></li>
-            <li><a href="/" class="tabs item1">
-                <div class="categorytop item-1">
-                    <div class="categoryimg item9"></div>
-                    <div class="captionimg-1">สื่อบันเทิงภายในบ้าน</div>
-                </div>
-            </a></li>
-            <li><a href="/" class="tabs item1">
-                <div class="categorytop item-1">
-                    <div class="categoryimg item10"></div>
-                    <div class="captionimg-1">เกมและอุปกรณ์เสริม</div>
-                </div>
-            </a></li>
-        </ul>
-    </div>
-    <div class="topmenu"> 
-        <ul class="d-flex">
-            <li><a href="/" class="tabs item1">
-                <div class="categorytop item-1">
-                    <div class="categoryimg item11"></div>
-                    <div class="captionimg-1">เสื้อผ้าแฟชั่นผู้หญิง</div>
-                </div>
-            </a></li>
-            <li><a href="/" class="tabs item1">
-                <div class="categorytop item-1">
-                    <div class="categoryimg item12"></div>
-                    <div class="captionimg-1">ความงามและของใช้ส่วนตัว</div>
-                </div>
-            </a></li>
-            <li><a href="/" class="tabs item1">
-                <div class="categorytop item-1">
-                    <div class="categoryimg item13"></div>
-                    <div class="captionimg-1">ของเล่น สินค้าแม่และเด็ก</div>
-                </div>
-            </a></li>
-            <li><a href="/" class="tabs item1">
-                <div class="categorytop item-1">
-                    <div class="categoryimg item14"></div>
-                    <div class="captionimg-1">เครื่องใช้ในบ้าน</div>
-                </div>
-            </a></li>
-            <li><a href="/" class="tabs item1">
-                <div class="categorytop item-1">
-                    <div class="categoryimg item15"></div>
-                    <div class="captionimg-1">กระเป๋า</div>
-                </div>
-            </a></li>
-            <li><a href="/" class="tabs item1">
-                <div class="categorytop item-1">
-                    <div class="categoryimg item16"></div>
-                    <div class="captionimg-1">รองเท้าผู้หญิง</div>
-                </div>
-            </a></li>
-            <li><a href="/" class="tabs item1">
-                <div class="categorytop item-1">
-                    <div class="categoryimg item17"></div>
-                    <div class="captionimg-1">เครื่องประดับ</div>
-                </div>
-            </a></li>
-            <li><a href="/" class="tabs item1">
-                <div class="categorytop item-1">
-                    <div class="categoryimg item18"></div>
-                    <div class="captionimg-1">อาหารและเครื่องดื่ม</div>
-                </div>
-            </a></li>
-            <li><a href="/" class="tabs item1">
-                <div class="categorytop item-1">
-                    <div class="categoryimg item19"></div>
-                    <div class="captionimg-1">เครื่องใช้ไฟฟ้าภายในบ้าน</div>
-                </div>
-            </a></li>
-            <li><a href="/" class="tabs item1">
-                <div class="categorytop item-1">
-                    <div class="categoryimg item20"></div>
-                    <div class="captionimg-1">สัตว์เลี้ยง</div>
-                </div>
-            </a></li>
+            {#each items as item, index}
+                <li><a href="/" class="tabs item1">
+                    <div class="categorytop item-1">
+                        <div class="categoryimg item1"></div>
+                        <div class="captionimg-1">{item.description}</div>
+                    </div>
+                </a></li>
+            {/each}
         </ul>
     </div>
 </div>
@@ -201,7 +159,7 @@
        margin: 0 auto;
     }
     .categoryimg.item1{
-        background-image: url("https://cf.shopee.co.th/file/f06f0abdf6bb5a65fdc6edf73101b820_tn");
+        background-image: url("");
     }
     .categoryimg.item2{
         background-image: url("https://cf.shopee.co.th/file/398408c2f8ab9de41f1e06e75edb38bc_tn");
