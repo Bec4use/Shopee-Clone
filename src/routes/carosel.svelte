@@ -123,10 +123,13 @@
 
 
 <style>
-
+*{
+    box-sizing: border-box;
+}
 #slider {
     margin: 20px auto 10px;
     max-width: 1200px;
+    padding: 0;
 }
 .carousel-inner{
     width: 800px;

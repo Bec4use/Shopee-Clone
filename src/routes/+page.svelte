@@ -7,6 +7,7 @@
 	import Followus from './followus.svelte';
 	import Itemcategory from './itemcategory.svelte';
 	import Navbarbot from './navbarbot.svelte';
+	import Weeklysale from './weeklysale.svelte';
 </script>
 <div class="navbar-wrap sticky-top">
     <div class="navbartopper">
@@ -35,7 +36,7 @@
                         <li><a href="/">ไทย</a></li>
                     </div>
                     
-                    <li><a href="/">สมัครใหม่</a></li>
+                    <li><a href="./login">สมัครใหม่</a></li>
                     <li><a href="/">เข้าสู่ระบบ</a></li>
                 </ul>
 
@@ -56,6 +57,7 @@
     <Itemcategory />
     <Flashsale />
     <Events />
+    <Weeklysale />
 </div>
 <div class="itemcategory">
     

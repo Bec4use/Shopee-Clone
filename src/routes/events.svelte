@@ -4,7 +4,7 @@
         <a class="click-1" target="_self" href="https://shopee.co.th/m/payday-sale" style="flex-grow: 33.3333;"> </a>
     </div>
 </div>
-<div class="container shopmall mt-4">
+<div class="container1 shopmall mt-4 container">
     <div class="shopmall-title">
         <div class="title-left">
             <h1>SHOPEE MALL</h1>
@@ -24,7 +24,88 @@
             </a>
         </div>
     </div>
+    <div class="body-shopmall d-flex">
+        <section id="slider-shop" class="container d-sm-flex">
+            <div class="carousel slide" data-bs-ride="carousel" id="mySliders">
+                <ol class="carousel-indicators">
+                    <button data-bs-target="#mySliders" data-bs-slide-to="0" class="active"></button>
+                    <button data-bs-target="#mySliders" data-bs-slide-to="1" class=""></button>
+                    <button data-bs-target="#mySliders" data-bs-slide-to="2"class=""></button>
+                    <button data-bs-target="#mySliders" data-bs-slide-to="3"class=""></button>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item carousel-img-1 active">
+                        <div class="container">
+                        </div>
+                    </div>
+                    <div class="carousel-item carousel-img-2">
+                        <div class="container">
+                        </div>
+                    </div>
+                    <div class="carousel-item carousel-img-3">
+                        <div class="container">
+                        </div>
+                    </div>
+                    <div class="carousel-item carousel-img-4">
+                        <div class="container">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" data-bs-target="#mySliders" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon bg-dark"></span>
+                    </button>
+                    <button class="carousel-control-next" data-bs-target="#mySliders" data-bs-slide="next">
+                        <span class="carousel-control-next-icon bg-dark"></span>
+                    </button>
+                </div>
+            </div>
+        </section>
+        <div class="shopmall-items">
+            <ul class="d-flex">
+                <li class="mallItem-1">
+                    <a href="/" class="mallimg">
+                        <div class="mallimg item1"></div>
+                    </a>
+                    <div class="captionmall">ลดสูงสุด 50% + โค้ดลดเพิ่ม</div>
+                    <a href="/" class="mallimg">
+                        <div class="mallimg item2"></div>
+                    </a>
+                    <div class="captionmall">ลดสูงสุด 50%   </div>
+                </li>
+                <li class="mallItem-1">
+                    <a href="/" class="mallimg">
+                        <div class="mallimg item3"></div>
+                    </a>
+                    <div class="captionmall">ลดสูงสุด 28% + โค้ดลดเพิ่ม</div>
+                    <a href="/" class="mallimg">
+                        <div class="mallimg item4"></div>
+                    </a>
+                    <div class="captionmall">ลดสูงสุด 40%</div>
+                </li>
+                <li class="mallItem-1">
+                    <a href="/" class="mallimg">
+                        <div class="mallimg item5"></div>
+                    </a>
+                    <div class="captionmall">ลดสูงสุด 28% + โค้ดลดเพิ่ม</div>
+                    <a href="/" class="mallimg">
+                        <div class="mallimg item6"></div>
+                    </a>
+                    <div class="captionmall">ลดสูงสุด 40%</div>
+                </li>
+                <li class="mallItem-1">
+                    <a href="/" class="mallimg">
+                        <div class="mallimg item7"></div>
+                    </a>
+                    <div class="captionmall">ลดสูงสุด 28% + โค้ดลดเพิ่ม</div>
+                    <a href="/" class="mallimg">
+                        <div class="mallimg item8"></div>
+                    </a>
+                    <div class="captionmall">ลดสูงสุด 40%</div>
+                </li>
+            </ul>
+        </div>
+    </div>
 </div>
+
 <style>
     *{
         box-sizing: border-box;
@@ -34,11 +115,16 @@
         height: 100%;
         max-width: 75rem;
     }
-    .container{
+    .container1{
         height: 34.875rem;
         max-width: 75rem;
         background-color: #fff;
         padding: 0;
+    }
+    .body-shopmall{
+        height: 29.75rem;
+        max-width: 75rem;
+        background-color: #fff;
     }
     .shopmall-title{
         height: 3.75rem;
@@ -80,5 +166,99 @@
         text-decoration: none;
         font-size: .875rem;
         color: #d0011b;
+    }
+    #slider-shop {
+    margin: 20px auto 10px;
+    max-width: 24.375rem;
+    }
+    .carousel-inner{
+        width: 24.375rem;
+        margin-right: 5px;
+        overflow: hidden;
+    }
+    .carousel-item{
+        height: 29rem;
+    }
+    .carousel-img-1 {
+        background-image: url("https://cf.shopee.co.th/file/th-50009109-3684b2cebf82ba6b0c85b688fa1a8899");
+        background-size: cover;
+        position: relative;
+    }
+    .carousel-img-2 {
+        background-image: url("https://cf.shopee.co.th/file/th-50009109-c51f9996d546dbcfcf367818331471f8");
+        background-size: cover;
+        position: relative;
+
+    }
+    .carousel-img-3 {
+        background-image: url("https://cf.shopee.co.th/file/th-50009109-41b0f8b536d95f88ff11f00e96226d0d");
+        background-size: cover;
+        position: relative;
+    }
+    .carousel-img-4 {
+        background-image: url("https://cf.shopee.co.th/file/4523db040ebb907c1e5d4a677b89baf3");
+        background-size: cover;
+        position: relative;
+    }
+
+    .carousel-indicators button{
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 100%;
+    border: 1px solid #fff;
+    background-color: #ee4d2d;
+    }
+    li{
+        list-style: none;
+        width: 12.5rem;
+        height: 100%;
+        height: 29rem;
+
+    }
+    .shopmall-items{
+        width: 50.625rem;
+        height: 29rem;
+        margin: 20px 0 10px;
+    }
+    ul{
+        padding: 0 1rem;
+    }
+    .mallimg{
+        width: 100%;
+        height: 45%;
+        justify-content: center;
+        background-size: cover; 
+        background-repeat: no-repeat;
+    }
+    .captionmall{
+        color: #d0011b;
+        font-size: 1rem;
+        text-align: center;
+        height: 5%;
+        word-wrap: break-word;
+    }
+    .mallimg.item1{
+        background-image: url("https://cf.shopee.co.th/file/a6ad3914f649b8c4815fd6cf3333ee9b_xhdpi");
+    }
+    .mallimg.item2{
+        background-image: url("https://cf.shopee.co.th/file/0cd5ed6624ce4dbc34c37c4c056536b9_xhdpi");
+    }
+    .mallimg.item3{
+        background-image: url("https://cf.shopee.co.th/file/th-50009109-cc9bfe8a38205ca23ecd402382e0e6ae_xhdpi");
+    }
+    .mallimg.item4{
+        background-image: url("https://cf.shopee.co.th/file/th-50009109-d9caa203d0ca18af4793f4e5ba7cdbac_xhdpi");
+    }
+    .mallimg.item5{
+        background-image: url("	https://cf.shopee.co.th/file/5d46a57f36f5dbfd36e459f81722c1eb_xhdpi");
+    }
+    .mallimg.item6{
+        background-image: url("https://cf.shopee.co.th/file/ca873bc62a70187832b1557638071ec6_xhdpi");
+    }
+    .mallimg.item7{
+        background-image: url("https://cf.shopee.co.th/file/c17e0670d23f1db40c710e1be53d18f8_xhdpi");
+    }
+    .mallimg.item8{
+        background-image: url("https://cf.shopee.co.th/file/954e3df9977cd72fae7e6b981d0a396a_xhdpi");
     }
 </style>
