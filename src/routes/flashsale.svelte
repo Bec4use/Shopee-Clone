@@ -1,4 +1,7 @@
 <script>
+	import { onMount } from "svelte";
+
+
     let second = 59
     let mins = 59
     let hours = 0
@@ -17,6 +20,57 @@
     setInterval(() => {
         hours -= 1
     }, 3600000)
+    
+    /**
+	 * @type {any[]}
+	 */
+    let flashSaleItems=[];
+
+    onMount(async () => {
+        flashSaleItems = await getFlashSaleItems();
+    })
+
+    const getFlashSaleItems = async() => {
+        return [
+            {
+                id: 1234,
+                price: 11900,
+                discount: 73,
+                imageUrl: "https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/ac7f81d9ee062223753413ec98497a86.png"
+            },
+            {
+                id: 12344,
+                price: 18290,
+                discount: 80,
+                imageUrl: "https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/ac7f81d9ee062223753413ec98497a86.png"
+            },
+            {
+                id: 34566,
+                price: 2710,
+                discount: 73,
+                imageUrl: "https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/ac7f81d9ee062223753413ec98497a86.png"
+            },
+            {
+                id: 34566,
+                price: 2710,
+                discount: 73,
+                imageUrl: "https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/ac7f81d9ee062223753413ec98497a86.png"
+            },
+            {
+                id: 34566,
+                price: 2710,
+                discount: 73,
+                imageUrl: "https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/ac7f81d9ee062223753413ec98497a86.png"
+            },
+            {
+                id: 34566,
+                price: 2710,
+                discount: 73,
+                imageUrl: "https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/ac7f81d9ee062223753413ec98497a86.png"
+            }
+        ]
+    }
+
   </script>
 <div class="container mt-4">
     <div class="flashmenu d-flex">
@@ -36,96 +90,24 @@
     </div>
     <div class="flashcontent">
         <div class="img-flashsale d-flex container">
-            <a href="/" class="flashitem-1">
-                <div class="flashsale1">
-                    <div class="flashimg-1"></div>
-                    <div class="flashimgcover"></div>
-                    <div class="price-1">฿11,900
-                        <div class="flashbar">
-                            <img src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/ac7f81d9ee062223753413ec98497a86.png" alt="">
+            {#each flashSaleItems as item}
+                <a href="/" class="flashitem-1">
+                    <div class="flashsale1">
+                        <div class="flashimg-1"></div>
+                        <div class="flashimgcover"></div>
+                        <div class="price-1">฿{item.price}
+                            <div class="flashbar">
+                                <img src={item.imageUrl} alt="">
+                            </div>
                         </div>
-                    </div>
-                    <div class="discount-1">
-                        <span>ลด</span>
-                        <span>73%</span>
-                    </div>
-                    
-                </div>  
-            </a>
-            <a href="/" class="flashitem-1">
-                <div class="flashsale1">
-                    <div class="flashimg-2"></div>
-                    <div class="flashimgcover"></div>
-                    <div class="price-1">฿18,290<div class="flashbar">
-                        <img src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/ac7f81d9ee062223753413ec98497a86.png" alt="">
-                    </div> 
-                    </div>
-                    <div class="discount-1">
-                        <span>ลด</span>
-                        <span>80%</span>
-                    </div>
-                </div>  
-            </a>
-            <a href="/" class="flashitem-1">
-                <div class="flashsale1">
-                    <div class="flashimg-3"></div>
-                    <div class="flashimgcover"></div>
-                    <div class="price-1">฿2,710
-                        <div class="flashbar">
-                            <img src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/ac7f81d9ee062223753413ec98497a86.png" alt="">
+                        <div class="discount-1">
+                            <span>ลด</span>
+                            <span>{item.discount}%</span>
                         </div>
-                    </div>
-                    <div class="discount-1">
-                        <span>ลด</span>
-                        <span>73%</span>
-                    </div>
-                </div>  
-            </a>
-            <a href="/" class="flashitem-1">
-                <div class="flashsale1">
-                    <div class="flashimg-4"></div>
-                    <div class="flashimgcover"></div>
-                    <div class="price-1">฿1,680
-                        <div class="flashbar">
-                            <img src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/ac7f81d9ee062223753413ec98497a86.png" alt="">
-                        </div>
-                    </div>
-                    <div class="discount-1">
-                        <span>ลด</span>
-                        <span>73%</span>
-                    </div>
-                </div>  
-            </a>
-            <a href="/" class="flashitem-1">
-                <div class="flashsale1">
-                    <div class="flashimg-5"></div>
-                    <div class="flashimgcover"></div>
-                    <div class="price-1">฿25,900
-                        <div class="flashbar">
-                            <img src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/ac7f81d9ee062223753413ec98497a86.png" alt="">
-                        </div>
-                    </div>
-                    <div class="discount-1">
-                        <span>ลด</span>
-                        <span>73%</span>
-                    </div>
-                </div>  
-            </a>
-            <a href="/" class="flashitem-1">
-                <div class="flashsale1">
-                    <div class="flashimg-6"></div>
-                    <div class="flashimgcover"></div>
-                    <div class="price-1">฿14,900
-                        <div class="flashbar">
-                            <img src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/ac7f81d9ee062223753413ec98497a86.png" alt="">
-                        </div>
-                    </div>
-                    <div class="discount-1">
-                        <span>ลด</span>
-                        <span>73%</span>
-                    </div>
-                </div>  
-            </a>
+                        
+                    </div>  
+                </a>
+            {/each}
         </div>
     </div>
 </div>
