@@ -29,27 +29,32 @@ import { onMount } from "svelte"
         return [{
             price:11900,
             discount : 73,
-        
+            imgUrl:"https://cf.shopee.co.th/file/a8d55f5c20e1501e76ff32db6045e572_tn",    
         },
         {
             price:18290,
             discount : 80,
+            imgUrl:"https://cf.shopee.co.th/file/9d1485e950870f8e5cea2cee9c439de4_tn",
         },
         {
             price:2710,
             discount : 73,
+            imgUrl:"https://cf.shopee.co.th/file/17839b72cde60b4d10375b77d50cc643_tn",
         },
         {
             price:1680,
             discount : 73,
+            imgUrl:"https://cf.shopee.co.th/file/d8fc110bea3962e9d8c06454ab36390e_tn",
         },
         {
             price:25900,
             discount : 73,
+            imgUrl:"https://cf.shopee.co.th/file/7be30879de0dd95195369cc190e78759_tn",
         },
         {
             price:14900,
             discount : 73,
+            imgUrl:"https://cf.shopee.co.th/file/1826524b22408a10c4c43daa9da1ddcb_tn",
         },
     ]
         
@@ -76,16 +81,18 @@ import { onMount } from "svelte"
             {#each flashSaleItems as item , index}
             <a href="/" class="flashitem-1">     
                 <div class="flashsale1">
-                    <div class={`flashimg-${index+1}`}></div>
+                    <!-- <div class={`flashimg-${index+1}`}></div> -->
+                    <div class="imgflashsale">
+                        <img src={item.imgUrl} alt="">
+                    </div>
                     <div class="flashimgcover"></div> 
-                        <!-- <a href={`guide/path/${guide.id}`}>{guide.id}.{guide.title}</a> -->
                         <div class="price-1">฿{item.price}<div class="flashbar">
                             <img src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/ac7f81d9ee062223753413ec98497a86.png" alt="">
                             </div> 
                         </div>
                       <div class="discount-1">
                         <span>ลด</span>
-                        <span>{item.discount}</span>
+                        <span>{item.discount}%</span>
                     </div>
                 </div>
             </a>
@@ -134,8 +141,7 @@ import { onMount } from "svelte"
         text-align: center;
         justify-content: center;
     }
-    .flashimg-1{
-        background-image: url("https://cf.shopee.co.th/file/a8d55f5c20e1501e76ff32db6045e572_tn");
+    .imgflashsale img{
         height: 10.125rem;
         width: 10.125rem;
         margin: 1rem auto;
@@ -169,14 +175,8 @@ import { onMount } from "svelte"
     .price-1{
         color: #ee4d2d;
     }
-    .flashimg-2{
-        background-image: url("https://cf.shopee.co.th/file/9d1485e950870f8e5cea2cee9c439de4_tn");
-        height: 10.125rem;
-        width: 10.125rem;
-        margin: 1rem auto;
-        position: relative;
-        background-size: cover;
-    }
+
+
     .flashimgcover{
         background-image: url("https://cf.shopee.co.th/file/7ccd657497baadbe425c2ac1dd464c7c_tn");
         height: 10.125rem;
@@ -186,38 +186,7 @@ import { onMount } from "svelte"
         background-size: cover;
         top: 93.5rem;
     }
-    .flashimg-3{
-        background-image: url("https://cf.shopee.co.th/file/17839b72cde60b4d10375b77d50cc643_tn");
-        height: 10.125rem;
-        width: 10.125rem;
-        margin: 1rem auto;
-        position: relative;
-        background-size: cover;
-    }
-    .flashimg-4{
-        background-image: url("https://cf.shopee.co.th/file/d8fc110bea3962e9d8c06454ab36390e_tn");
-        height: 10.125rem;
-        width: 10.125rem;
-        margin: 1rem auto;
-        position: relative;
-        background-size: cover;
-    }
-    .flashimg-5{
-        background-image: url("https://cf.shopee.co.th/file/7be30879de0dd95195369cc190e78759_tn");
-        height: 10.125rem;
-        width: 10.125rem;
-        margin: 1rem auto;
-        position: relative;
-        background-size: cover;
-    }
-    .flashimg-6{
-        background-image: url("https://cf.shopee.co.th/file/1826524b22408a10c4c43daa9da1ddcb_tn");
-        height: 10.125rem;
-        width: 10.125rem;
-        margin: 1rem auto;
-        position: relative;
-        background-size: cover;
-    }
+    
     .flashbar {
         height: 1rem;
         background-image: url("https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/ac7f81d9ee062223753413ec98497a86.png");

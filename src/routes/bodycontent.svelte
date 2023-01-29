@@ -1,4 +1,7 @@
 <script>
+	import { onMount } from "svelte"
+
+
     let second = 59
     let mins = 59
     let hours = 23
@@ -20,7 +23,54 @@
         hours=23
     }
     }, 3600000)
-  </script>
+    /**
+	 * @type {any[]}
+	 */
+    let paydayItems = [];
+    onMount (async()=>{
+        paydayItems = await getPaydayItems()
+    })
+    const getPaydayItems = async ()=>{
+        return[
+            {
+                id:1,
+                price: "24",
+                imgUrl: "https://cf.shopee.co.th/file/sg-11134201-23010-9taxyh8y6omv92_tn",
+                discount:"73%"
+            },
+            {
+                id:2,
+                price: "60",
+                imgUrl: "https://cf.shopee.co.th/file/th-50009109-75de64695b4aa1cf6fc532d932ba66d8_tn",
+                discount:"80%"
+            },
+            {
+                id:3,
+                price: "10,500",
+                imgUrl: "https://cf.shopee.co.th/file/f5dbffff9f3761268d1543c51b8796ac_tn",
+                discount:"73%"
+            },
+            {
+                id:4,
+                price: "38,500",
+                imgUrl: "https://cf.shopee.co.th/file/0681d4b6465fdf62237431cdb9c2365c_tn",
+                discount:"73%"
+            },
+            {
+                id:5,
+                price: "25,900",
+                imgUrl: "https://cf.shopee.co.th/file/09e4946e938e74afc0b391bbea764185_tn",
+                discount:"73%"
+            },
+            {
+                id:6,
+                price: "14,900",
+                imgUrl: "https://cf.shopee.co.th/file/fbc4b416919f07d6027d5177b924591d_tn",
+                discount:"73%"
+            }
+        ]
+    }
+</script>
 
 <div class="spacer-homepage">
 </div>
@@ -49,69 +99,21 @@
             <a href="/">ดูเพิ่มเติม &gt;</a>
         </div>
         <div class="img-flashsale d-flex container">
-            <a href="/" class="flashitem-1">
+            {#each paydayItems as item}
+            <a href="/" class="flashitem-1">  
                 <div class="flashsale1">
-                    <div class="flashimg-1"></div>
-                    <div class="price-1">฿24</div>
-                    <div class="discount-1">
-                        <span>ลด</span>
-                        <span>73%</span>
+                    <div class="flashimg">
+                        <img src={item.imgUrl} alt="">
                     </div>
-                </div>  
-            </a>
-            <a href="/" class="flashitem-1">
-                <div class="flashsale1">
-                    <div class="flashimg-2"></div>
                     <div class="flashimgcover"></div>
-                    <div class="price-1">฿60</div>
+                    <div class="price-1">฿{item.price}</div>
                     <div class="discount-1">
                         <span>ลด</span>
-                        <span>80%</span>
+                        <span>{item.discount}</span>
                     </div>
                 </div>  
             </a>
-            <a href="/" class="flashitem-1">
-                <div class="flashsale1">
-                    <div class="flashimg-3"></div>
-                    <div class="flashimgcover"></div>
-                    <div class="price-1">฿10,500</div>
-                    <div class="discount-1">
-                        <span>ลด</span>
-                        <span>73%</span>
-                    </div>
-                </div>  
-            </a>
-            <a href="/" class="flashitem-1">
-                <div class="flashsale1">
-                    <div class="flashimg-4"></div>
-                    <div class="flashimgcover"></div>
-                    <div class="price-1">฿38,500</div>
-                    <div class="discount-1">
-                        <span>ลด</span>
-                        <span>73%</span>
-                    </div>
-                </div>  
-            </a>
-            <a href="/" class="flashitem-1">
-                <div class="flashsale1">
-                    <div class="flashimg-5"></div>
-                    <div class="price-1">฿25,900</div>
-                    <div class="discount-1">
-                        <span>ลด</span>
-                        <span>73%</span>
-                    </div>
-                </div>  
-            </a>
-            <a href="/" class="flashitem-1">
-                <div class="flashsale1">
-                    <div class="flashimg-6"></div>
-                    <div class="price-1">฿14,900</div>
-                    <div class="discount-1">
-                        <span>ลด</span>
-                        <span>73%</span>
-                    </div>
-                </div>  
-            </a>
+            {/each}
         </div>
     </div>
     <div class="footer-menu"></div>
@@ -180,13 +182,12 @@
         padding-top: 0.5rem;
         text-align: center;
     }
-    .flashimg-1{
-        background-image: url("https://cf.shopee.co.th/file/sg-11134201-23010-9taxyh8y6omv92_tn");
+    .flashimg img{
         height: 10.125rem;
         width: 10.125rem;
         margin: 1rem auto;
         position: relative;
-        background-size: cover; 
+        background-size: cover;
     }
     .flashitem-1 {
         text-decoration: none;
@@ -212,14 +213,7 @@
     .discount-1 span+span {
         color: red;
     }
-    .flashimg-2{
-        background-image: url("https://cf.shopee.co.th/file/th-50009109-75de64695b4aa1cf6fc532d932ba66d8_tn");
-        height: 10.125rem;
-        width: 10.125rem;
-        margin: 1rem auto;
-        position: relative;
-        background-size: cover;
-    }
+
     .flashimgcover{
         background-image: url("https://cf.shopee.co.th/file/sg-11134004-23010-t16qsa0w5ylv46_tn");
         height: 10.125rem;
@@ -228,38 +222,6 @@
         position: absolute;
         background-size: cover;
         top: 47.5rem;
-    }
-    .flashimg-3{
-        background-image: url("https://cf.shopee.co.th/file/f5dbffff9f3761268d1543c51b8796ac_tn");
-        height: 10.125rem;
-        width: 10.125rem;
-        margin: 1rem auto;
-        position: relative;
-        background-size: cover;
-    }
-    .flashimg-4{
-        background-image: url("https://cf.shopee.co.th/file/0681d4b6465fdf62237431cdb9c2365c_tn");
-        height: 10.125rem;
-        width: 10.125rem;
-        margin: 1rem auto;
-        position: relative;
-        background-size: cover;
-    }
-    .flashimg-5{
-        background-image: url("https://cf.shopee.co.th/file/09e4946e938e74afc0b391bbea764185_tn");
-        height: 10.125rem;
-        width: 10.125rem;
-        margin: 1rem auto;
-        position: relative;
-        background-size: cover;
-    }
-    .flashimg-6{
-        background-image: url("https://cf.shopee.co.th/file/fbc4b416919f07d6027d5177b924591d_tn");
-        height: 10.125rem;
-        width: 10.125rem;
-        margin: 1rem auto;
-        position: relative;
-        background-size: cover;
     }
     .time-zone-menu{
         width: 10.875rem;
