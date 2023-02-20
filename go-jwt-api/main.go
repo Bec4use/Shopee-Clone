@@ -54,7 +54,10 @@ func main() {
 	// Migtrate the schema
 	Db.AutoMigrate(&Users{})
 	r := gin.Default()
-	r.Use(cors.Default())
+	config := cors.DefaultConfig()
+	config.AllowAllOrigins = true
+	config.AddAllowHeaders("Authorization")
+	r.Use(cors.New(config))
 	r.POST("/register", func(c *gin.Context) {
 		var json RegisterBody
 		if err := c.ShouldBindJSON(&json); err != nil {

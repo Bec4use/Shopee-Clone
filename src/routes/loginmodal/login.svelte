@@ -95,7 +95,8 @@
 				}
 			).then((value) =>{
 				close();
-				goto('/', { state: { foo: 'bar' } });
+				localStorage.setItem('token',json.token)
+				goto('/Profile', { state: { foo: 'bar' } });
 				
         	})
 			} else {
