@@ -1,14 +1,33 @@
 <script>
+// @ts-nocheck
+
 	import Profiledetail from './profiledetail.svelte';
-	let x = 'https://cf.shopee.co.th/file/ea97b2cfd8f08ba5f5883c8e3c6a3967_tn';
+	// let x = 'https://cf.shopee.co.th/file/ea97b2cfd8f08ba5f5883c8e3c6a3967_tn';
+	let userProfile = [];
+	let user = {};
+	import { onMount } from 'svelte';
+
+	onMount(async () => {
+        const token = localStorage.getItem('token');
+        
+      const response = await fetch('http://localhost:8080/users/profile', {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    });
+		const data = await response.json();
+		userProfile = data;
+        console.log(userProfile);
+        user = userProfile.user[0];
+	});
 </script>
 
 <div class="containerx d-flex">
 	<div class="menu-profile">
 		<div class="imgprofile d-flex">
-			<img src={x} alt="" />
+			<img src={user.Avatar} alt="" />
 			<div class="username">
-				<div>JoeNetipong</div>
+				<div>{user.Fullname}</div>
 				<a href="/"
 					><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 96 960 960" width="20"
 						><path

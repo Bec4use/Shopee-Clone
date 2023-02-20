@@ -30,10 +30,11 @@ type Users struct {
 	gorm.Model
 	Username string
 	Password string
-	Fullname string
-	Address  string
+	Fullname string `json:"Fullname"`
+	Address  string `json:"Address"`
 	Birthday string
 	Tel      string
+	Avatar   string `json:"Avatar"`
 }
 type LoginBody struct {
 	Username string `json:"username" binding:"required"`
@@ -58,6 +59,7 @@ func main() {
 	config.AllowAllOrigins = true
 	config.AddAllowHeaders("Authorization")
 	r.Use(cors.New(config))
+	///Register user
 	r.POST("/register", func(c *gin.Context) {
 		var json RegisterBody
 		if err := c.ShouldBindJSON(&json); err != nil {
@@ -128,6 +130,36 @@ func main() {
 		var user []Users
 		Db.First(&user, userId)
 		c.JSON(http.StatusOK, gin.H{"status": "OK", "message": "User information read success", "user": user})
+	})
+	authorized.PUT("/update", func(c *gin.Context) {
+		var json Users
+		if err := c.ShouldBindJSON(&json); err != nil {
+			c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+			return
+		}
+		userId := c.MustGet("userId").(float64)
+
+		var user []Users
+		newUser := Users{Fullname: json.Fullname, Address: json.Address, Avatar: json.Avatar}
+		Db.First(&user, userId).Updates(&newUser)
+
+		if err == nil {
+			Db.Save(&user)
+			c.JSON(http.StatusOK, gin.H{"status": "OK", "message": "User Updated Already Done!", "user": userId, `Updated Info`: user})
+		} else {
+			c.JSON(http.StatusOK, gin.H{"Status": "Error", "Message": "User Updated Failed"})
+		}
+	})
+	authorized.DELETE("/delete", func(c *gin.Context) {
+		userId := c.MustGet("userId").(float64)
+		var user []Users
+		Db.Delete(&user, userId)
+
+		if err == nil {
+			c.JSON(http.StatusOK, gin.H{"status": "OK", "message": "User Deleted Already Done!", "user": userId, `Updated Info`: user})
+		} else {
+			c.JSON(http.StatusOK, gin.H{"Status": "Error", "Message": "User Updated Failed"})
+		}
 	})
 	r.Run("localhost:8080") // listen and serve on 0.0.0.0:8080 (for windows "localhost:8080")
 }

@@ -1,8 +1,14 @@
 <script>
+// @ts-nocheck
+
 
 	import { onMount } from 'svelte';
+    import Swal from 'sweetalert2';
+
 	let userProfile = [];
     let user = {};
+    let Fullname ='';
+    let Address ='';
 
 	onMount(async () => {
         const token = localStorage.getItem('token');
@@ -16,8 +22,50 @@
 		userProfile = data;
         console.log(userProfile);
         user = userProfile.user[0];
-        // console.log(`User is ${user}`);
 	});
+
+    async function handleChange() {
+		const data = { Fullname, Address };
+        const token = localStorage.getItem('token');
+        
+		try {
+			const res = await fetch('http://localhost:8080/users/update', {
+				method: 'PUT',
+				headers: {
+                    
+					'Authorization': `Bearer ${token}`
+				},
+
+				body: JSON.stringify(data)
+			});
+
+			const json = await res.json();
+			console.log(json);
+			if (json.status === 'OK') {
+				Swal.fire({
+					position: 'center',
+					icon: 'success',
+					title: json.message ,
+					showConfirmButton: true,
+				}
+			).then((value) =>{
+				location.reload();
+        	})
+			} else {
+				Swal.fire({
+					icon: 'error',
+					title: 'Oops...',
+					text: 'Register result : Failed!',
+					footer: '<a href="">Why do I have this issue?</a>'
+				});
+			}
+		} catch (error) {
+			console.error(error);
+		}
+        
+	}
+
+
 </script>
 
 <div class="User-title">
@@ -28,14 +76,16 @@
     <div class="">
         <form action="">
             <label for="">ต้องการเปลี่ยนชื่อ ?</label>
-            <input type="text" name="" id="" class="form-control">
+            <input type="text" name="" id="" class="form-control" bind:value={ Fullname }>
+            <label for="">ต้องการเปลี่ยนที่อยู่ ?</label>
+            <input type="text" name="" id="" class="form-control"  bind:value={ Address }>
             <div class="d-flex"><p>ชื่อผู้ใช้  : </p> <label for="">{user.Username}</label></div>
             <div class="d-flex"><p>ชื่อจริง - นามสกุล :</p><label for="">{user.Fullname}</label></div>
             <div class="d-flex"><p>Password : </p><label for="">{user.Password}</label></div>
             <div class="d-flex"><p>ที่อยู่ : </p><label for="">{user.Address}</label></div>
             <div class="d-flex"><p>วัน เดือน ปี เกิด :</p><label for="">{user.Birthday}</label></div>
             <div class="d-flex"><p>หมายเลขโทรศัพท์ : </p><label for="">{user.Tel}</label></div>
-            <button type="submit">บันทึก</button>
+            <button type="submit" on:click={handleChange}>บันทึก</button>
         </form>
     </div>
     <div class="input-img">
