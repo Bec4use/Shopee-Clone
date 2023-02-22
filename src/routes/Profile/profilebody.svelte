@@ -19,6 +19,7 @@
 		userProfile = data;
         console.log(userProfile);
         user = userProfile.user[0];
+		
 	});
 </script>
 
@@ -93,7 +94,7 @@
 	.imgprofile img {
 		width: 3rem;
 		height: 3rem;
-		background-size: contain;
+		background-size:contain;
 		border-radius: 50%;
 		border: 1px solid rgba(0, 0, 0, 0.2);
 		margin-right: 0.5rem;

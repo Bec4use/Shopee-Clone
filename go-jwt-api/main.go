@@ -105,7 +105,7 @@ func main() {
 			hmacSampleSecret = []byte(os.Getenv("JWT_SECRET_KEY"))
 			token := jwt.NewWithClaims(jwt.SigningMethodHS256, jwt.MapClaims{
 				"userId": userExist.ID,
-				"exp":    time.Now().Add(time.Minute * 60).Unix(),
+				"exp":    time.Now().Add(time.Minute * 1).Unix(), //token have 1 min for expire
 			})
 			tokenString, err := token.SignedString(hmacSampleSecret)
 			fmt.Println(tokenString, err)

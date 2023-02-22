@@ -236,13 +236,18 @@
 		margin: 1rem;
 	}
 	.modal-header {
-		width: 250px;
+		width: 245px;
 		height: 50px;
 		margin: 35px auto;
 		position: relative;
 		box-shadow: 0 0 20px 9px #ff61241f;
 		border-radius: 30px;
-    color: #fff;
+    	color: #fff;
+	}
+	.modal-header button {
+		color: #fff;
+		font-size: 1.2rem;
+		font-weight: bold;
 	}
 	.toggle-btn {
 		padding: 10px 30px;
@@ -256,7 +261,7 @@
 		top: 0;
 		left: 0;
 		position: absolute;
-		width: 125px;
+		width: 130px;
 		height: 100%;
 		background: linear-gradient(to right, #ff105f, #ffad06);
 		border-radius: 30px;
